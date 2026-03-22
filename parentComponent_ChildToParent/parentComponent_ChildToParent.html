@@ -1,0 +1,8 @@
+<template>
+    <lightning-card  variant="Narrow"  title="Parent Component Data Received From Child" icon-name="standard:account">
+        <div class="slds-p-around_x-small">
+            Value recieved from child : {valueFromChild}
+        </div>
+    <c-child-component-child-to-parent  onselect = {handleMessage}></c-child-component-child-to-parent>
+</lightning-card>
+</template>

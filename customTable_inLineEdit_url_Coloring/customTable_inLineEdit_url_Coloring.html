@@ -1,0 +1,82 @@
+<template>
+
+    <lightning-card title="Advanced Account Table">
+
+        <!-- Save Button -->
+        <div class="slds-m-bottom_small">
+            <lightning-button label="Save Changes" onclick={handleSave}></lightning-button>
+            <lightning-button label="Refresh" onclick={handleRefresh} class="slds-m-left_small"></lightning-button>
+        </div>
+
+        <!-- TABLE -->
+        <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Industry</th>
+                    <th>Phone</th>
+                    <th>Revenue</th>
+                    <th>Contacts</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <template for:each={accounts} for:item="acc">
+                    <tr key={acc.Id} class={acc.rowClass}>
+
+                        <!-- Name -->
+                        <td>
+                            <lightning-input value={acc.Name} data-id={acc.Id} data-field="Name"
+                                onchange={handleChange}>
+                            </lightning-input>
+                        </td>
+
+                        <!-- Industry -->
+                        <td>
+                            <lightning-input value={acc.Industry} data-id={acc.Id} data-field="Industry"
+                                onchange={handleChange}>
+                            </lightning-input>
+                        </td>
+
+                        <!-- Phone -->
+                        <td>
+                            <lightning-input value={acc.Phone} data-id={acc.Id} data-field="Phone"
+                                onchange={handleChange}>
+                            </lightning-input>
+                        </td>
+
+                        <!-- Revenue -->
+                        <td>{acc.AnnualRevenue}</td>
+
+                        <!-- Related Records (Clickable) -->
+                        <td>
+                            <a href="javascript:void(0);" data-id={acc.Id} onclick={navigateToContacts}>
+                                {acc.contactCount} Contacts
+                            </a>
+                        </td>
+
+                        <!-- Actions -->
+
+                        <td>
+                            <lightning-button-menu alternative-text="Actions">
+                                <lightning-menu-item label="View" value="view" data-id={acc.Id}
+                                    onclick={handleAction}></lightning-menu-item>
+                                <lightning-menu-item label="Edit" value="edit" data-id={acc.Id}
+                                    onclick={handleAction}></lightning-menu-item>
+                                <lightning-menu-item label="Delete" value="delete" data-id={acc.Id}
+                                    onclick={handleAction}></lightning-menu-item>
+                            </lightning-button-menu>
+                        </td>
+                        
+
+                    </tr>
+                </template>
+            </tbody>
+
+        </table>
+
+    </lightning-card>
+
+</template>

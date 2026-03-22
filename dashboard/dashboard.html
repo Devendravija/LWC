@@ -1,0 +1,40 @@
+<template>
+    <lightning-card title="Opportunity Dashboard">
+
+        <div class="slds-m-around_medium">
+
+            <!-- FILTER -->
+            <lightning-combobox
+                label="Select Year"
+                value={year}
+                options={yearOptions}
+                onchange={handleYearChange}>
+            </lightning-combobox>
+
+            <lightning-button
+                label="Refresh"
+                onclick={refreshData}
+                class="slds-m-top_small">
+            </lightning-button>
+
+            <!-- GRID -->
+            <div class="dashboard-grid">
+
+                <div class="chart-box">
+                    <canvas class="stageChart"></canvas>
+                </div>
+
+                <div class="chart-box">
+                    <canvas class="typeChart"></canvas>
+                </div>
+
+                <div class="chart-box full-width">
+                    <canvas class="monthChart"></canvas>
+                </div>
+
+            </div>
+
+        </div>
+
+    </lightning-card>
+</template>

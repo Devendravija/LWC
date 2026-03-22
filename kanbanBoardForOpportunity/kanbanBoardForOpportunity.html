@@ -1,0 +1,78 @@
+<template>
+    <lightning-button label="Theme" title="Non-primary action" variant = "brand" onclick={handleTheme} class="slds-m-left_x-small"></lightning-button>
+
+    <lightning-card title="Project  Kanban Board" icon-name="standard:task">
+        <div class="kanban-container">
+            <template for:each={stagesWithTasks} for:item="col">
+                <div key={col.stage}
+                    class="kanban-column"
+                    data-stage={col.stage}
+                    ondragover={handleDragOver}
+                    ondrop={handleDrop}
+                    data-id="changecolor">
+                   
+                    <h2 class="column-title">{col.stage}</h2>
+
+                    <template for:each={col.tasks} for:item="task">
+                        <div key={task.Id}
+                            class="kanban-card"
+                            draggable="true"
+                            data-id={task.Id}
+                            ondragstart={handleDragStart}
+                            onclick={handleClick}
+                            data-color="cardcolor">
+                           
+                            <p class="task-title">{task.Name}</p>
+                            <p class="task-owner">{task.StageName}</p>
+                            <!--p class="task-date">Due: {task.Due_Date__c}</p-->
+                        </div>
+                    </template>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>
+
+
+
+<!--template>
+    <div class="drag-drop-container">
+        <div class="wrapper" ondragenter={onWrapperDragEnter} ondrop={onWrapperDragEnd} ondragleave={onWrapperDragLeave}>
+            < onDragEnter and onDragLeave -->
+            <!--div class="scroll-bar scroll-left" data-scroll-to="left" ondragenter={scrollLeftStart} ondragleave={scrollEnd}>
+                <div class="scroll-bar-content" style={getScrollContentStyle} ondragenter={scrollLeftStart} ondragleave={scrollEnd}>
+                    <lightning-icon icon-name="utility:jump_to_left"></lightning-icon>
+                    <span class="scroll-text">Left</span>
+                </div>
+            </div>
+            <div class="stage-wrapper">
+                <template for:each={stagesWithTasks} for:item="col">
+                    <div class="stage-container" key={col} ondrop={itemDrop} data-stage-id={col} ondragover={itemDragOver}>
+                        <div class="stage-header">
+                            <div class="stage-header-title">{col.stage}</div>
+                        </div>
+                        <div class="card-wrapper">
+                            <template for:each={col.tasks} for:item="item">
+                                <div class="card-container" key={item.id} data-id={item.id} draggable="true" ondragstart={itemDragStart}>
+                                    <div class="card-title">
+                                        <div class="">{item.Name}</div>
+                                    </div>
+                                    <div class="card-description">
+                                        <div class="">{item.StageName}</div>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </template>
+            </div>
+            <onDragEnter and onDragLeave -->
+            <!--div class="scroll-bar scroll-right" data-scroll-to="right" ondragenter={scrollRightStart} ondragleave={scrollEnd}>
+                <div class="scroll-bar-content" style={getScrollContentStyle} ondragenter={scrollRightStart} ondragleave={scrollEnd}>
+                    <lightning-icon icon-name="utility:jump_to_right"></lightning-icon>
+                    <span class="scroll-text">Right</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</template-->

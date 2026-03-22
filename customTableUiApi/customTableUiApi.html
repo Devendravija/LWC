@@ -1,0 +1,111 @@
+<template>
+
+    <!-- ACTION BAR -->
+    <div class="slds-grid slds-gutters">
+
+        <lightning-button label="Add" icon-name="utility:add"
+            onclick={handleCreate}></lightning-button>
+
+        <lightning-button label="Export" icon-name="utility:download"
+            onclick={handleExport}></lightning-button>
+
+        <lightning-button label="Delete Selected" icon-name="utility:delete"
+            onclick={handleBulkDelete}></lightning-button>
+
+    </div>
+
+    <!-- SEARCH -->
+    <lightning-input type="search" label="Search"
+        onchange={handleSearch}></lightning-input>
+
+    <!-- TABLE -->
+    <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+
+        <thead>
+            <tr>
+                <th></th>
+                <template for:each={columns} for:item="col">
+                    <th key={col.fieldName}
+                        data-field={col.fieldName}
+                        onclick={handleSort}>
+                        {col.label}
+                    </th>
+                </template>
+                <th>Image</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+    <template for:each={paginatedData} for:item="row">
+        <tr key={row.Id}>
+
+            <!-- Checkbox -->
+            <td>
+                <lightning-input type="checkbox"
+                    data-id={row.Id}
+                    onchange={handleSelect}></lightning-input>
+            </td>
+
+            <!-- Dynamic Cells -->
+            <template for:each={row.cells} for:item="cell">
+                <td key={cell.field}>
+
+                    <!-- ICON ONLY FOR STAGE -->
+                    <template if:true={cell.isStage}>
+                        <lightning-icon icon-name={row.stageIcon}
+                            size="xx-small"></lightning-icon>
+                    </template>
+
+                    <!-- EDIT MODE -->
+                    <template if:true={row.isEdit}>
+                        <lightning-input value={cell.value}
+                            data-id={row.Id}
+                            data-field={cell.field}
+                            onchange={handleEditChange}>
+                        </lightning-input>
+                    </template>
+
+                    <!-- VIEW MODE -->
+                    <template if:false={row.isEdit}>
+                        {cell.value}
+                    </template>
+
+                </td>
+            </template>
+
+            <!-- IMAGE -->
+            <td>
+                <img src={row.Image_URL__c}
+                     style="width:40px;height:40px;border-radius:50%;" />
+            </td>
+
+            <!-- ACTIONS -->
+            <td>
+                <lightning-button-icon icon-name="utility:edit"
+                    data-id={row.Id}
+                    onclick={handleEdit}></lightning-button-icon>
+
+                <lightning-button-icon icon-name="utility:save"
+                    data-id={row.Id}
+                    onclick={handleSave}></lightning-button-icon>
+
+                <lightning-button-icon icon-name="utility:delete"
+                    data-id={row.Id}
+                    onclick={handleDelete}></lightning-button-icon>
+            </td>
+
+        </tr>
+    </template>
+</tbody>
+
+    </table>
+
+    <!-- PAGINATION -->
+    <div class="slds-m-top_medium">
+        <lightning-button label="Prev" onclick={prevPage}></lightning-button>
+        <span>Page {page} / {totalPages}</span>
+        <lightning-button label="Next" onclick={nextPage}></lightning-button>
+    </div>
+
+</template>

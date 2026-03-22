@@ -1,0 +1,32 @@
+<template>
+    <lightning-card title="Single Select Combobox">
+
+        <!-- Search -->
+        <lightning-input
+            type="text"
+            label="Search"
+            onchange={handleSearch}>
+        </lightning-input>
+
+        <!-- Combobox -->
+        <lightning-combobox
+            label="Select Option"
+            value={selectedValue}
+            options={filteredOptions}
+            onchange={handleChange}>
+        </lightning-combobox>
+
+        <!-- Selected -->
+        <template if:true={selectedValue}>
+            <p class="slds-m-top_small">
+                Selected: {selectedValue}
+            </p>
+
+            <lightning-button
+                label="Clear"
+                onclick={clearSelection}>
+            </lightning-button>
+        </template>
+
+    </lightning-card>
+</template>

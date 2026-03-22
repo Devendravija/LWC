@@ -1,0 +1,57 @@
+<template>
+    <lightning-card title="SIP & Lump Sum Calculator">
+
+        <!-- LUMP SUM -->
+        <div class="section">
+            <h2>Lump Sum Investment</h2>
+
+            <lightning-slider label="Investment Amount"
+                min="500" max="1000000" value={lumpAmount}
+                onchange={handleLumpChange}></lightning-slider>
+
+            <lightning-slider label="Duration (Years)"
+                min="1" max="40" value={lumpYears}
+                onchange={handleLumpChange}></lightning-slider>
+
+            <lightning-slider label="Return Rate (%)"
+                min="1" max="30" value={lumpRate}
+                onchange={handleLumpChange}></lightning-slider>
+
+            <p>Invested: {lumpInvested}</p>
+            <p>Returns: {lumpReturns}</p>
+            <p>Total: {lumpTotal}</p>
+
+            <canvas class="lumpChart"></canvas>
+
+            <lightning-button label="Save Lump Sum"
+                onclick={saveLump}></lightning-button>
+        </div>
+
+        <!-- SIP -->
+        <div class="section">
+            <h2>SIP Investment</h2>
+
+            <lightning-slider label="Monthly Amount"
+                min="500" max="1000000" value={sipAmount}
+                onchange={handleSipChange}></lightning-slider>
+
+            <lightning-slider label="Duration (Years)"
+                min="1" max="40" value={sipYears}
+                onchange={handleSipChange}></lightning-slider>
+
+            <lightning-slider label="Return Rate (%)"
+                min="1" max="30" value={sipRate}
+                onchange={handleSipChange}></lightning-slider>
+
+            <p>Invested: {sipInvested}</p>
+            <p>Returns: {sipReturns}</p>
+            <p>Total: {sipTotal}</p>
+
+            <canvas class="sipChart"></canvas>
+
+            <lightning-button label="Save SIP"
+                onclick={saveSip}></lightning-button>
+        </div>
+
+    </lightning-card>
+</template>

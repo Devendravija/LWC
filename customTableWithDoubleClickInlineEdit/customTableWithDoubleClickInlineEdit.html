@@ -1,0 +1,59 @@
+<template>
+    <lightning-card title="Custom Table (Double Click Edit + Image)">
+
+        <div class="slds-m-bottom_small">
+            <lightning-button
+                label="Save"
+                variant="brand"
+                onclick={handleSave}>
+            </lightning-button>
+        </div>
+
+        <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Industry</th>
+                    <th>Logo</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <template for:each={data} for:item="acc">
+                    <tr key={acc.Id}>
+
+                        <td>{acc.Name}</td>
+
+                        <!-- DOUBLE CLICK -->
+                        <td ondblclick={handleDoubleClick} data-id={acc.Id}>
+
+                            <!-- VIEW -->
+                            <template if:false={acc.isEdit}>
+                                <span class="view-mode">{acc.Industry}</span>
+                            </template>
+
+                            <!-- EDIT -->
+                            <template if:true={acc.isEdit}>
+                                <lightning-combobox
+                                    value={acc.Industry}
+                                    options={industryOptions}
+                                    data-id={acc.Id}
+                                    onchange={handlePicklistChange}
+                                    onblur={handleBlur}>
+                                </lightning-combobox>
+                            </template>
+
+                        </td>
+
+                        <!-- IMAGE -->
+                        <td>
+                            <img src={acc.imageUrl} class="logo"/>
+                        </td>
+
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+
+    </lightning-card>
+</template>

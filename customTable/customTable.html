@@ -1,0 +1,67 @@
+<template>
+    <lightning-card title="Custom Account Table">
+
+        <!-- TABLE -->
+        <div class="slds-p-around_medium">
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+
+                <!-- HEADER -->
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th>Name</th>
+                        <th>Industry</th>
+                        <th>Phone</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <!-- BODY -->
+                <tbody>
+                    <template for:each={accounts} for:item="acc">
+                        <tr key={acc.Id}>
+
+                            <td>{acc.Name}</td>
+                            <td>{acc.Industry}</td>
+                            <td>{acc.Phone}</td>
+
+                            <td>
+                                <lightning-button-menu alternative-text="Actions">
+                                    <lightning-menu-item label="View" value="view" data-id={acc.Id} onclick={handleAction}></lightning-menu-item>
+                                    <lightning-menu-item label="Edit" value="edit" data-id={acc.Id} onclick={handleAction}></lightning-menu-item>
+                                    <lightning-menu-item label="Delete" value="delete" data-id={acc.Id} onclick={handleAction}></lightning-menu-item>
+                                </lightning-button-menu>
+                            </td>
+
+                        </tr>
+                    </template>
+                </tbody>
+
+            </table>
+        </div>
+
+    </lightning-card>
+
+    <!-- 🔷 DELETE CONFIRM MODAL -->
+    <template if:true={isDeleteModalOpen}>
+        <section class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+
+                <header class="slds-modal__header">
+                    <h2 class="slds-text-heading_medium">Confirm Delete</h2>
+                </header>
+
+                <div class="slds-modal__content slds-p-around_medium">
+                    Are you sure you want to delete this Account?
+                </div>
+
+                <footer class="slds-modal__footer">
+                    <lightning-button label="Cancel" onclick={closeDeleteModal}></lightning-button>
+                    <lightning-button label="Delete" variant="destructive" onclick={confirmDelete}></lightning-button>
+                </footer>
+
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+</template>

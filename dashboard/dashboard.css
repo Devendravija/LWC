@@ -1,0 +1,16 @@
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.chart-box {
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    height: 300px;
+}
+
+.full-width {
+    grid-column: span 2;
+}

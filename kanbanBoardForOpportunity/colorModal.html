@@ -1,0 +1,24 @@
+<template>
+    <lightning-modal-header label="Change Color">
+    </lightning-modal-header>
+    <lightning-modal-body>
+        <lightning-input
+            data-id="cardColorInput"
+            type="text"
+            name="name"
+            label="Coloumn Color"
+        ></lightning-input>
+         <lightning-input
+            data-id="cardColorInput"
+            type="text"
+            name="name"
+            label="Element Color"
+        ></lightning-input>
+    </lightning-modal-body>
+    <lightning-modal-footer>
+        <lightning-button label="Cancel" title="Non-primary action" onclick={handleButtonCancel} class="slds-m-left_x-small"></lightning-button>
+
+        <lightning-button variant="brand" label="Save" title="Primary action" onclick={handleSave} class="slds-m-left_x-small"></lightning-button>
+
+    </lightning-modal-footer>
+</template>

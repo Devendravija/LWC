@@ -1,0 +1,34 @@
+<template>
+  <lightning-card title="File Upload with Preview">
+    <div class="slds-p-around_medium">
+      <!-- 1) File input -->
+      <lightning-input
+        type="file"
+        label="Choose Image"
+        accept="image/*"
+        onchange={handleFileChange}>
+      </lightning-input>
+
+      <!-- 2) Preview -->
+      <template if:true={filePreviewUrl}>
+        <div class="slds-m-top_medium">
+          <b>Preview:</b><br/>
+          <img src={filePreviewUrl} alt="preview" style="max-width:200px; max-height:200px;"/>
+        </div>
+      </template>
+
+      <!-- 3) Upload button -->
+      <lightning-button
+        class="slds-m-top_medium"
+        label="Upload to Salesforce"
+        onclick={uploadFile}
+        variant="brand"
+        disabled={isUploadDisabled}>
+      </lightning-button>
+         <!-- 4) Status -->
+      <template if:true={status}>
+        <p class="slds-m-top_small">{status}</p>
+      </template>
+    </div>
+  </lightning-card>
+</template>

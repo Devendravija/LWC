@@ -1,0 +1,52 @@
+<template>
+    <lightning-card title="Opportunity Search & Filter">
+
+        
+        <div class="slds-grid slds-wrap slds-p-around_medium">
+
+            
+            <div class="slds-col slds-size_1-of-3">
+                <lightning-input 
+                    label="Search by Name"
+                    value={searchKey}
+                    onchange={handleSearchKey}>
+                </lightning-input>
+            </div>
+
+            
+            <div class="slds-col slds-size_1-of-3">
+                <lightning-input 
+                    type="date"
+                    label="From Date"
+                    value={fromDate}
+                    onchange={handleFromDate}>
+                </lightning-input>
+            </div>
+
+            
+            <div class="slds-col slds-size_1-of-3">
+                <lightning-input 
+                    type="date"
+                    label="To Date"
+                    value={toDate}
+                    onchange={handleToDate}>
+                </lightning-input>
+            </div>
+
+        </div>
+
+        
+        <div class="slds-p-horizontal_medium slds-m-bottom_small">
+            <lightning-button label="Search" onclick={handleSearch}></lightning-button>
+            <lightning-button label="Reset" onclick={handleReset} class="slds-m-left_small"></lightning-button>
+        </div>
+
+        
+        <lightning-datatable
+            key-field="Id"
+            data={data}
+            columns={columns}>
+        </lightning-datatable>
+
+    </lightning-card>
+</template>
