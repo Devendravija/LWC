@@ -1,0 +1,27 @@
+<template>
+
+    <div class="slds-box bodycolor">
+
+        
+        <div class="slds-grid slds-wrap">
+            {objectj.FirstName}
+            {objectj.SecondName}1
+            <div class="slds-col slds-size_6-of-12 slds-p-around_medium">
+                <lightning-input type="text" class="firstName" data-id="firstName"
+                    label="Enter First Name"></lightning-input>
+            </div>
+
+            <div class="slds-col slds-size_6-of-12 slds-p-around_medium">
+                <lightning-input type="text" class="lastName" label="Enter Last Name"></lightning-input>
+            </div>
+
+            <div class="slds-col slds-size_12-of-12 slds-p-around_medium slds-align_absolute-center">
+                <lightning-button label="Click Me" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+            </div>
+            <!--<c-second-component received-data={fullName}></c-second-component>-->
+        </div>
+    </div>
+
+
+
+</template>

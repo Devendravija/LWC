@@ -1,0 +1,26 @@
+<template>
+    <div class="classbox slds-box">
+        <div class="slds-grid" >
+            <div class="slds-col slds-size_2-of-12 slds-p-around_medium">
+                <lightning-icon icon-name="standard:groups" size="medium"></lightning-icon>
+            </div>
+            <div class="slds-col slds-size_10-of-12 slds-p-around_medium">
+                <h3 class="heading" style="font-size: medium; font-weight: bold;">Order Status Dashboard</h3>
+            </div>
+        </div>
+        <lightning-card title="Order Details">
+        <template if:true={hasData}>
+            <template for:each={keys} for:item="key">
+                <p key={key}>
+                    <strong>{key}:</strong> {obj[key]}
+                </p>
+            </template>
+        </template>
+        <template if:false={hasData}>
+            <p>{recD}</p>
+        </template>
+    </lightning-card>
+
+        
+    </div>
+</template>

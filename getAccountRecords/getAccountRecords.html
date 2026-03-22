@@ -1,0 +1,9 @@
+<template>
+    Hello
+    <lightning-input type="text" class="account" label="Enter Name to Search" onchange={handleclick}></lightning-input>
+    <!-- <lightning-button label="Get Records" onclick={handleClick} class="slds-m-left_x-small"></lightning-button> -->
+    <template for:each={recordsFromApex} for:item="arr">
+        <p key={arr.Id}>{arr.Name} </p>
+    </template>
+
+</template>

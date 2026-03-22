@@ -1,0 +1,19 @@
+/* .acc{
+    --slds-c-button-brand-color-background: var(--slds-g-blue-30);
+};
+
+.con{
+    --slds-c-button-brand-color-background: var(--slds-g-green-30);
+};
+
+.opp{
+    --slds-c-button-brand-color-background: var(--slds-g-orange-30);
+};
+
+.lead{
+    --slds-c-button-brand-color-background: var(--slds-g-red-30);
+} */
+
+.custom-icon{
+    --slds-c-icon-color-foreground-default: var(--slds-g-black-80);
+}

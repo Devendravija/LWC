@@ -1,0 +1,23 @@
+<template>
+    <div class="classbox slds-box">
+        <div class="slds-grid" >
+            <div class="slds-col slds-size_2-of-12 slds-p-around_medium">
+                <lightning-icon icon-name="standard:orders" size="medium"></lightning-icon>
+            </div>
+            <div class="slds-col slds-size_10-of-12 slds-p-around_medium">
+                <h3 class="heading" style="font-size: medium; font-weight: bold;">Order Placement Component</h3>
+            </div>
+        </div>
+
+        <lightning-input type="text" placeholder="Enter Customer Name" data-id="customername" label="Customer Name"></lightning-input>
+        
+        <lightning-combobox data-id="product" name="Product" placeholder="Select an Item" required label="Select Item" options={options}></lightning-combobox>
+        
+        <lightning-input type="number" placeholder="Enter Quantity" data-id="quantity" label="Order Quantity" min="1"></lightning-input>
+        
+        <div class="slds-text-align_center slds-m-top_medium">
+            <lightning-button variant="brand" label="Place Order" onclick={handleClick}></lightning-button>
+        </div>
+
+    </div>
+</template>

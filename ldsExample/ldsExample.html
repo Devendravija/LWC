@@ -1,0 +1,23 @@
+<template>
+    <div class="slds-box">
+
+
+        <lightning-datatable
+            key-field="id"
+            data={data}
+            show-row-number-column
+            columns={columns}
+            onrowaction={handleRowAction}
+            onrowselection={handleRowSelection}>
+        </lightning-datatable>
+        <lightning-button variant="brand" label="Delete Selected Record" onclick={deleteSelected} class="slds-m-left_x-small"></lightning-button>
+
+        <!-- <lightning-record-form
+    object-api-name={objectName}
+    record-id={recordId}
+    fields={fields}></lightning-record-form>
+        <lightning-input type="text" label="Enter some text" class="textField"></lightning-input>
+         <lightning-button variant="brand" label="Create Record" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+         <lightning-button variant="brand" label="Delete Record" onclick={handleClick1} class="slds-m-left_x-small"></lightning-button> -->
+    </div>
+</template>

@@ -1,0 +1,12 @@
+<template>
+    <div class="slds-c-box">
+        <lightning-input type="text" class="opportunity" label="Search"></lightning-input>
+        <lightning-button label="Search" variant="brand" onclick={handleClick}></lightning-button>
+        <lightning-combobox name="Opportunity" label="Status Update" options={options} onchange={handleChange}></lightning-combobox>
+        <lightning-datatable key-field="id" data={data} columns={columns} checkbox-column show-row-number-column
+             onrowselection={handleRowSelection} onrowunselection={handleRowUnselection}>
+        </lightning-datatable>
+        
+    </div>
+    {selectedRowsforupdate}
+</template>

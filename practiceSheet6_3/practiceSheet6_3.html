@@ -1,0 +1,20 @@
+<template>
+    <div class="classbox slds-box" style="background-color: white;">
+        <div class="slds-grid" >
+            <div class="slds-col slds-size_2-of-12 slds-p-around_medium">
+                <lightning-icon icon-name="standard:groups" size="medium"></lightning-icon>
+            </div>
+            <div class="slds-col slds-size_10-of-12 slds-p-around_medium">
+                <h3 class="heading" style="font-size: medium; font-weight: bold;">Order Summary</h3>
+            </div>
+        </div>
+        Total Orders:{totalOrder}
+        <br/>
+        {recD}
+        
+        
+        <br/>
+        Recent Order:{orders}
+        <!-- <lightning-data-table key-field="id" data={orders} columns={columns}></lightning-data-table> -->
+    </div>
+</template>

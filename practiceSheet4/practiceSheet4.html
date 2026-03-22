@@ -1,0 +1,17 @@
+<template>
+    <div class="slds-box">
+        <div class="slds-col slds-size_12-of-12 slds-p-around_medium">
+            <div>
+                <lightning-datatable key-field="Id" data={aggregatedata} columns={aggregatecolumns}>
+                </lightning-datatable>
+            </div>
+        </div>
+        <div class="slds-col slds-size_12-of-12 slds-p-around_medium">
+            <h1 class="slds-text-heading_large">Practice Sheet 4</h1>
+
+            <lightning-datatable key-field="Id" data={data} columns={columns} onrowselection={onRowSelection}>
+            </lightning-datatable>
+        </div>
+        
+    </div>
+</template>

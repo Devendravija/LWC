@@ -1,0 +1,22 @@
+<template>
+    Hello World!
+    <br />
+
+    <lightning-button label="Neutral" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+
+    <template for:each={arr} for:item="item">
+        <p key={item}>{item}</p>
+    </template>
+
+    <template for:each={arrInfo} for:item="item">
+        <p key={item}>{item.Name} - {item.NumberOfEmployees}</p>
+    </template>
+
+    <template lwc:if={flag}>
+        <c-life-cycle-lwc-two></c-life-cycle-lwc-two>
+    </template>
+    <template lwc:else>
+        Component Not Rendered.
+    </template>
+
+</template>

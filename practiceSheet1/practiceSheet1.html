@@ -1,0 +1,93 @@
+<template>
+    <!-- <div class="slds-box">
+        <div class="slds-text-title" style="font-weight: 700; font-size: 18px;">Select Object to Create Record</div>
+        <br>
+        <button class="slds-button slds-button_neutral" style="background-color: blue; color: white;"
+            onclick={clickHandleAcc}>Accounts</button>
+        <button class="slds-button slds-button_neutral" style="background-color: green; color: white;"
+            onclick={clickHandleCont}>Contacts</button>
+        <button class="slds-button slds-button_neutral" style="background-color: orange; color: white;"
+            onclick={clickHandleOpp}>Opportunities</button>
+        <button class="slds-button slds-button_neutral" style="background-color: red; color: white;"
+            onclick={clickHandleLead}>Leads</button>
+    </div> -->
+
+    <!-- <div class="slds-box">
+        <div class="slds-text-title" style="font-weight: 700; font-size: 18px;">Select Object to Create Record</div>
+        <br>
+        <button class="slds-button slds-button_neutral" value="Account" style="background-color: blue; color: white;"
+            onclick={clickHandle}>Accounts</button>
+        <button class="slds-button slds-button_neutral" value="Contact" style="background-color: green; color: white;"
+            onclick={clickHandle}>Contacts</button>
+        <button class="slds-button slds-button_neutral" value="Opportunity" style="background-color: orange; color: white;"
+            onclick={clickHandle}>Opportunities</button>
+        <button class="slds-button slds-button_neutral" value="Lead" style="background-color: red; color: white;"
+            onclick={clickHandle}>Leads</button>
+    </div>
+
+        <template if:true={isShow}>
+        <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01"
+            class="slds-modal slds-fade-in-open slds-modal_small">
+            <div class="slds-modal__container">
+                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={handleOptionClick}>
+                <lightning-icon icon-name="utility:close"
+                   alternative-text="close"
+                   variant="inverse"
+                   size="small" ></lightning-icon>
+                <span class="slds-assistive-text">Close</span>
+             </button>
+                <div class="slds-modal__header">
+                    <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate" tabindex="-1">Are you sure ?</h1>
+                </div>
+               
+                <div class="slds-modal__footer slds-text-align_center">
+                    <button class="slds-button slds-button_neutral" aria-label="Cancel and close " onclick={handleOptionClick}>Cancel</button>
+                    <button class="slds-button slds-button_brand" onclick={handleProceed}>Proceed</button>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+    </template> -->
+
+    <lightning-card title="Select Object to create record">
+
+        <div class="nav slds-m-top_large">
+
+            <button class="slds-button slds-button_brand slds-m-left_large" style="background-color: blue; color:white"
+                value="Account" onclick={handle}>Account</button>
+            <button class="slds-button slds-button_outline-brand  " style="background-color: green; color:white"
+                value="Opportunity" onclick={handle}>Opportunity</button>
+            <button class="slds-button slds-button_destructive " style="background-color: orange; color:white"
+                value="Contact" onclick={handle}>Contact</button>
+            <button class="slds-button slds-button_text-destructive " value="Lead"
+                style="background-color: red; color:white" onclick={handle}>Lead</button>
+        </div>
+
+    </lightning-card>
+
+    <template if:true={isShow}>
+        <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01"
+            class="slds-modal slds-fade-in-open slds-modal_small">
+            <div class="slds-modal__container">
+                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close"
+                    onclick={handleOptionClick}>
+                    <lightning-icon class="custom-icon" icon-name="utility:close"  alternative-text="close"
+                        variant="inverse" size="small"></lightning-icon>
+                    <span class="slds-assistive-text">Close</span>
+                </button>
+                <div class="slds-modal__header">
+                    <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate" tabindex="-1">Are you sure ?</h1>
+                </div>
+
+                <div class="slds-modal__footer slds-text-align_center">
+                    <button class="slds-button slds-button_neutral" aria-label="Cancel and close "
+                        onclick={handleOptionClick}>Cancel</button>
+                    <button class="slds-button slds-button_brand" onclick={handleProceed}>Proceed</button>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+    </template>
+
+
+</template>
