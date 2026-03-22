@@ -1,0 +1,11 @@
+<template>
+    <lightning-button label="Click Me" onclick={handleClick}></lightning-button>
+    <lightning-datatable
+                key-field="id"
+                show-row-number-column="true"
+                data={data}
+                columns={columns}
+                actions={actions}
+                onrowaction={handleRowAction}>
+        </lightning-datatable>
+</template>

@@ -1,0 +1,16 @@
+<template>
+    <lightning-modal-header label={heading}></lightning-modal-header>
+    <lightning-modal-body>
+        <lightning-record-view-form record-id={recordId} object-api-name="Contact">
+            <lightning-output-field field-name="Name"></lightning-output-field>
+            <lightning-output-field field-name="Email"></lightning-output-field>
+            <lightning-output-field field-name="Phone"></lightning-output-field>
+            <lightning-output-field field-name="Title"></lightning-output-field>
+            <lightning-output-field field-name="LeadSource"></lightning-output-field>
+            <lightning-output-field field-name="AccountId"></lightning-output-field>
+        </lightning-record-view-form>
+    </lightning-modal-body>
+    <lightning-modal-footer>
+        <lightning-button label="Close" onclick={handleClose}></lightning-button>
+    </lightning-modal-footer>
+</template>

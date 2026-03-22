@@ -1,0 +1,75 @@
+<template>
+    <div>
+        <lightning-input type="search" label="Search" onchange={handleSearch}></lightning-input>
+        <lightning-tabset active-tab-value="one">
+            <lightning-tab label="All Opportunity" value="one">
+
+            </lightning-tab>
+            <lightning-tab label="Closed-Won" value="two">
+
+            </lightning-tab>
+            <lightning-tab label="Closed-Lost" value="three">
+
+            </lightning-tab>
+            <lightning-tab label="On Hold" value="three">
+
+            </lightning-tab>
+        </lightning-tabset>
+
+        <lightning-button label="Add" title="Non-primary action" onclick={handleClick}
+            class="slds-m-left_x-small slds-float_right"></lightning-button>
+
+        <lightning-button-icon icon-name='utility:refresh' alternative-text='refresh' size='small' title='refresh'
+            class="slds-float_right" onclick={refresh}></lightning-button-icon>
+
+
+
+    </div>
+    <hr>
+    <lightning-datatable key-field="id" data={data} columns={columns} default-sort-direction={defaultSortDirection}
+        sorted-direction={sortDirection} sorted-by={sortedBy} onsort={onHandleSort}>
+    </lightning-datatable>
+
+    <template if:true={showModal}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+            aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <lightning-modal-body>
+                    <div class="slds-form" role="list">
+                        <div class="slds-form__row">
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_stacked">
+                                    <lightning-input onchange={handleTextInput} type="text" name="Name" label="Name"
+                                        required></lightning-input>
+                                </div>
+                            </div>
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_stacked">
+                                    <lightning-input onchange={handleTextInput} type="date" name="CloseDate"
+                                        label="Close Date" required></lightning-input>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="slds-form__row">
+
+                            <div class="slds-form__item" role="listitem">
+                                <div class="slds-form-element slds-form-element_stacked">
+                                    <lightning-combobox name="Status" label="Status" value={statusValue}
+                                        placeholder="Select Status" options={statusOptions}
+                                        onchange={handleStatusChange} required></lightning-combobox>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </lightning-modal-body>
+                <lightning-modal-footer>
+                    <lightning-button label="Save" onclick={handleSave}></lightning-button>
+                    <lightning-button label="Cancel" onclick={handleCancel}></lightning-button>
+                </lightning-modal-footer>
+            </div>
+        </section>
+    </template>
+</template>

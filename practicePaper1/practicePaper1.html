@@ -1,0 +1,38 @@
+<template>
+    <lightning-card>
+        <div class="slds-p-around_medium">
+            <button class="buttonC" onclick={handleClick}>New</button>
+        </div>
+        <div class="filterC">Filters</div>
+        <div class="slds-grid">
+            <div class="slds-col slds-size_6-of-12 slds-p-around_medium">
+                <lightning-combobox name="progress" label="Type Of Document" value={value1} placeholder="Select Property"
+                    options={optionsforDocument} onchange={handleChange1}></lightning-combobox>
+            </div>
+
+            <div class="slds-col slds-size_6-of-12 slds-p-around_medium">
+                <lightning-combobox name="progress" label="Valid" value={value2} placeholder="Select Property"
+                    options={optionsforValid} onchange={handleChange2}></lightning-combobox>
+            </div>
+
+        </div>
+        <div>
+
+
+            <lightning-accordion allow-multiple-sections-open onsectiontoggle={handleSectionToggle}
+                active-section-name={activeSections}>
+
+                <template for:each={groupedData} for:item="group">
+                    <lightning-accordion-section key={group.year} name={group.year} label={group.year}>
+                        <lightning-datatable key-field="Id" columns={columns} data={group.records} hide-checkbox-column
+                            default-sort-direction={defaultSortDirection} sorted-direction={sortDirection}
+                            sorted-by={sortedBy} onsort={onHandleSort} onrowaction={handleRowAction}>
+                        </lightning-datatable>
+                    </lightning-accordion-section>
+                </template>
+
+            </lightning-accordion>
+
+        </div>
+    </lightning-card>
+</template>

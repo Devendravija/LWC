@@ -1,0 +1,21 @@
+<template>
+    <lightning-modal-header label={heading}>
+        <p>Edit the contact information below.</p>
+    </lightning-modal-header>
+
+    <lightning-modal-body>
+        <lightning-record-edit-form record-id={recordId} object-api-name="Contact">
+            <lightning-output-field field-name="Name"></lightning-output-field>
+            <lightning-output-field field-name="Email"></lightning-output-field>
+            <lightning-output-field field-name="Phone"></lightning-output-field>
+            <lightning-output-field field-name="Title"></lightning-output-field>
+            <lightning-output-field field-name="LeadSource"></lightning-output-field>
+            <lightning-output-field field-name="AccountId"></lightning-output-field>
+        </lightning-record-edit-form>
+    </lightning-modal-body>
+
+    <lightning-modal-footer>
+        <lightning-button label="Cancel" variant="neutral" onclick={handleButtonCancel}></lightning-button>
+        <lightning-button label="Save" variant="brand" onclick={handleButtonSubmit}></lightning-button>
+    </lightning-modal-footer>
+</template>

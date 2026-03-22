@@ -1,0 +1,37 @@
+<template>
+
+    <lightning-accordion allow-multiple-sections-open class="example-accordion" active-section-name={activeSections}>
+        <template for:each={data} for:item="data">
+            <lightning-accordion-section key={data.Id} name={data.Name} label={data.Name}>
+                <b>
+                    <p>College Name: {data.Name}</p>
+                </b>
+                <b>
+                    <p>College Location: {data.College_Campus_Location__c}</p>
+                </b>
+                <b>
+                    <p>College Affiliation: {data.College_Affiliation__c}</p>
+                </b>
+                <b>
+                    <p>College Branches: {data.Branches_Offered__c}</p>
+                </b>
+                <lightning-accordion-section key={data.CreatedDate} label={data.CreatedDate} name={data.CreatedDate}>
+                    <p>{data.CreatedDate}</p>
+                    <template for:each={studentDataHiring} for:item="studentData">
+
+                        <lightning-accordion-section key={studentData.Profile__c} label={studentData.Profile__c}
+                            name={studentData.Profile__c}>
+
+                            <lightning-datatable data={studentDataHiring} columns={columns} key-field="id">
+                            </lightning-datatable>
+
+
+                        </lightning-accordion-section>
+
+                    </template>
+                </lightning-accordion-section>
+            </lightning-accordion-section>
+        </template>
+
+    </lightning-accordion>
+</template>
